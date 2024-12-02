@@ -14,9 +14,17 @@ body {
     font-family: 'Arial', sans-serif;
 }
 
+body,
+html {
+    overflow-x: hidden;
+    width: 100vw;
+    height: auto;
+}
+
 .tree {
     position: relative;
     text-align: center;
+    margin: 15%;
 }
 
 .star {
@@ -69,30 +77,211 @@ body {
     height: 10px;
     width: 10px;
     border-radius: 50%;
-    /* display: inline-block; */
-}
-
-.layer1 .ball{
-    display: inline-block;
-}
-
-.layer2 .ball{
-    display: inline-block;
-}
-
-.layer3 .ball{
-    display: inline-block;
 }
 
 .ball.red{
     background-color: red;
-    /* transform: translate(20px, 20px); */
+    animation: red-blink 2s infinite;
 }
 
 .ball.green{
     background-color: green;
+    animation: green-blink 2s infinite;
 }
 
 .ball.blue{
     background-color: blue;
+    animation: blue-blink 2s infinite;
+}
+
+@keyframes red-blink {
+    0% {background-color: red;}
+    50% {background-color: transparent;}
+    100% {background-color: red;}
+}
+
+@keyframes green-blink {
+    0% {background-color: transparent;}
+    25% {background-color: green;}
+    50% {background-color: transparent;}
+    100% {background-color: green;}
+}
+
+@keyframes blue-blink {
+    0% {background-color: blue;}
+    25% {background-color: transparent;}
+    50% {background-color: blue;}
+    100% {background-color: transparent;}
+}
+
+.layer1 .ball, .layer2 .ball, .layer3 .ball{
+    position: absolute;
+}
+/* layer 1 */
+.layer1 .ball:nth-child(1){
+    top: 12px;
+    left: 1px;
+}
+.layer1 .ball:nth-child(2){
+    top: 30px;
+    left: 7px;
+}
+.layer1 .ball:nth-child(3){
+    top: 30px;
+    right: 7px;
+}
+
+/* layer 2 */
+.layer2 .ball:nth-child(1){
+    top: 35px;
+    right: 3px;
+}
+.layer2 .ball:nth-child(2){
+    top: 40px;
+    right: 25px;
+}
+.layer2 .ball:nth-child(3){
+    top: 45px;
+    left: 10px;
+}
+.layer2 .ball:nth-child(4){
+    top: 120px;
+    left: 40px;
+}
+.layer2 .ball:nth-child(5){
+    top: 70px;
+    right: 25px;
+}
+.layer2 .ball:nth-child(6){
+    top: 120px;
+    left: -15px;
+}
+.layer2 .ball:nth-child(7){
+    top: 80px;
+    left: 35px;
+}
+.layer2 .ball:nth-child(8){
+    top: 75px;
+    right: 50px;
+}
+.layer2 .ball:nth-child(9){
+    top: 110px;
+    left: 75px;
+}
+.layer2 .ball:nth-child(10){
+    top: 110px;
+    right: 80px;
+}
+.layer2 .ball:nth-child(11){
+    top: 85px;
+    right: -15px;
+}
+.layer2 .ball:nth-child(12){
+    top: 100px;
+    right: 25px;
+}
+
+/* layer 3 */
+.layer3 .ball:nth-child(1) {
+    top: 45px;
+}
+.layer3 .ball:nth-child(2) {
+    top: 55px;
+    right: 30px;
+}
+.layer3 .ball:nth-child(3) {
+    top: 100px;
+    left: 50px;
+}
+.layer3 .ball:nth-child(4) {
+    top: 120px;
+}
+.layer3 .ball:nth-child(5) {
+    top: 145px;
+    right: 60px;
+}
+.layer3 .ball:nth-child(6) {
+    top: 160px;
+    left: 80px;
+}
+.layer3 .ball:nth-child(7) {
+    top: 160px;
+}
+.layer3 .ball:nth-child(8) {
+    top: 135px;
+    left: 90px;
+}
+.layer3 .ball:nth-child(9) {
+    top: 90px;
+    right: 70px;
+}
+.layer3 .ball:nth-child(10) {
+    top: 80px;
+    right: 20px;
+}
+.layer3 .ball:nth-child(11) {
+    top: 75px;
+}
+.layer3 .ball:nth-child(12) {
+    top: 110px;
+    right: 35px;
+}
+.layer3 .ball:nth-child(13) {
+    top: 135px;
+    left: 50px;
+}
+.layer3 .ball:nth-child(14) {
+    top: 170px;
+    right: 100px;
+}
+.layer3 .ball:nth-child(15) {
+    top: 160px;
+    left: -30px;
+}
+
+/* SNOW ANIMATIONS */
+.snow-container {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 99999;
+
+}
+
+.snowflake {
+    position: absolute;
+    background-color: white;
+    border-radius: 50%;
+    opacity: 0.8;
+    pointer-events: none;
+}
+
+@keyframes fall {
+    0% {
+        opacity: 0;
+        transform: translateY(0);
+    }
+    10% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.5;
+        transform: translateY(100vh);
+    }
+}
+
+@keyframes diagonal-fall {
+    0% {
+        opacity: 0;
+        transform: translate(0, 0);
+    }
+    10% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.25;
+        transform: translate(10vw, 100vh);
+    }
 }
