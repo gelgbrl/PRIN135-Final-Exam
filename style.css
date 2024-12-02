@@ -46,6 +46,7 @@ body {
     border-right: 150px solid transparent;
     border-bottom: 150px solid #28a745;
     margin-top: -20px;
+ 
 }
 
 .layer3 {
@@ -62,4 +63,36 @@ body {
     margin: 0 auto;
     margin-top: -20px;
     border-radius: 4px;
+}
+
+.ball{
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    /* display: inline-block; */
+}
+
+.layer1 .ball{
+    display: inline-block;
+}
+
+.layer2 .ball{
+    display: inline-block;
+}
+
+.layer3 .ball{
+    display: inline-block;
+}
+
+.ball.red{
+    background-color: red;
+    /* transform: translate(20px, 20px); */
+}
+
+.ball.green{
+    background-color: green;
+}
+
+.ball.blue{
+    background-color: blue;
 }
